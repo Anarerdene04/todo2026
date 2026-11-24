@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>할 일</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%239a3412'/%3E%3Cpath d='M8 16.5l5 5 11-12' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <p class="eyebrow">캘린더</p>
+        <h1>할 일</h1>
+      </div>
+      <div class="view-switch" role="group" aria-label="보기 방식">
+        <button type="button" data-action="set-view" data-view="day" aria-pressed="false">일별</button>
+        <button type="button" data-action="set-view" data-view="week" aria-pressed="false">주별</button>
+        <button type="button" data-action="set-view" data-view="month" class="is-active" aria-pressed="true">월별</button>
+      </div>
+    </header>
+
+    <div class="nav">
+      <button type="button" class="icon-btn" id="prevBtn" data-action="prev" aria-label="이전 달">‹</button>
+      <div class="nav-label">
+        <h2 id="periodLabel">이번 달</h2>
+        <p id="periodMeta"></p>
+      </div>
+      <button type="button" class="icon-btn" id="nextBtn" data-action="next" aria-label="다음 달">›</button>
+      <button type="button" class="btn btn-ghost" data-action="today">오늘</button>
+    </div>
+
+    <main id="board" class="board" aria-live="polite">
+      <p class="boot">달력을 준비하고 있습니다.</p>
+    </main>
+
+    <p class="footnote">할 일은 이 브라우저의 로컬 저장소에만 남습니다.</p>
+  </div>
+
+  <dialog id="dayDialog" aria-labelledby="dialogTitle"></dialog>
+  <noscript><p class="boot">이 페이지는 JavaScript로 동작합니다. 브라우저에서 JavaScript를 켜 주세요.</p></noscript>
+  <script src="app.js"></script>
+</body>
+</html>
